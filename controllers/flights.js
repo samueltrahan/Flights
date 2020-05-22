@@ -1,12 +1,12 @@
 const Flight = require('../models/flight');
 
 module.exports = {
-    new: newPage,
+    new: newFlight,
     index,
     create,
 }
 
-function newPage(req, res) {
+function newFlight(req, res) {
     res.render('flights/new');
 }
 
@@ -19,6 +19,11 @@ function index(req, res) {
 }
 
 function create(req, res) {
+    if(!req.body.departs) {
+        const defaultDate = new Date();
+        defaultDate.setFullYear(defaultDate.getFullYear() + 1);
+        req.body.departs = defaultDate;
+    }
     const flight = new Flight(req.body);
     flight.save(function (err) {
         if (err) return res.render('flights/new');
