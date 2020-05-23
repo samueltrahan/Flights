@@ -1,28 +1,36 @@
 <%- include('../partials/base') %>
 
-
 <h1>Flight Plan</h1>
 <table>
-    <thead>
-        <tr>
-            <th>Airline</th>
-            <th>Airport</th>
-            <th>Flight Number</th>
-            <th>Departure Date</th>
-        </tr>
-    </thead>
-    <tbody>
+  <thead>
+    <tr>
+      <th>Airline</th>
+      <th>Airport</th>
+      <th>Flight Number</th>
+      <th>Departure Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% flights.forEach(function(f) { %>
 
-        <% flights.forEach(function(f) { %>
-        <tr>
-            <td><%= f.airline %></td>
-            <td><%= f.airport %></td>
-            <td><%= f.flightNo %></td>
-            <td><%= f.departs %></td>
-        </tr>
-        <% }); %>
-    </tbody>
+    <tr>
+      <td><%= f.airline %></td>
+      <td><%= f.airport %></td>
+      <td><%= f.flightNo %></td>
+      <td><%= f.departs %></td>
+      <td>
+        <form action="/flights/<%= f._id %>" method="GET">
+          <button type="submit">Details</button>
+        </form>
+      </td>
+      <td>
+        <form action="/flights/<%= f._id %>?_method=DELETE" method="POST">
+          <button type="submit">X</button>
+        </form>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
 </table>
-
 
 <%- include('../partials/footer') %>
