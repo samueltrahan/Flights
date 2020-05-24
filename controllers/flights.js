@@ -33,7 +33,7 @@ function show(req, res) {
 
 function create(req, res) {
     if (!req.body.departs) {
-        const defaultDate = new Date();
+        let defaultDate = new Date();
         defaultDate.setFullYear(defaultDate.getFullYear() + 1);
         req.body.departs = defaultDate;
     }
@@ -52,9 +52,9 @@ function deleteFlight(req, res) {
 
 function update(req, res) {
     if (!req.body.departs) {
-        let redate = new Date();
-        redate.setFullYear(redate.getFullYear() + 1);
-        req.body.departs = redate
+        let defaultDate = new Date();
+        defaultDate.setFullYear(defaultDate.getFullYear() + 1);
+        req.body.departs = defaultDate
     }
     Flight.findByIdAndUpdate(req.params.id, req.body, function (err, flights) {
         res.redirect('/flights/')

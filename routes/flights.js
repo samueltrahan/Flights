@@ -8,8 +8,8 @@ router.get('/', flightCrtl.index);
 router.post('/', flightCrtl.create);
 router.get('/:id', flightCrtl.show);
 router.delete('/:id', flightCrtl.delete);
-router.post('/update/:id', flightCrtl.update);
 router.get('/:id/edit', flightCrtl.details);
+router.post('/update/:id', flightCrtl.update);
 
 
 module.exports = router;
