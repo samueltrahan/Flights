@@ -16,6 +16,7 @@ function newFlight(req, res) {
 
 function index(req, res) {
     Flight.find({}, function (err, flights) {
+        ;
         res.render('flights/index', {
             flights
         });
@@ -29,6 +30,7 @@ function show(req, res) {
             flight
         })
     })
+
 }
 
 function create(req, res) {
@@ -63,7 +65,6 @@ function update(req, res) {
 
 function details(req, res) {
     Flight.findById(req.params.id, function (err, flight) {
-        console.log(flight);
         res.render('flights/update', {
             title: 'Update Flight',
             flight
