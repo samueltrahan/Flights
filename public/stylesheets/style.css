@@ -4,14 +4,20 @@
   color: #424748;
 }
 
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: salmon;
-}
 
 a {
   color: black;
+}
+
+body {
+  background-color: salmon;
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-areas:
+    "nav"
+    "main"
 }
 
 body>nav {
@@ -40,7 +46,8 @@ body>main {
 }
 
 body>main h1:first-child {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  position: relative;
 }
 
 nav>a {
@@ -60,15 +67,21 @@ nav>a.active {
 }
 
 table {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 table thead th {
-  padding: 5px;
+  padding: 18px;
   border-bottom: 2px solid #424748;
 }
 
 table td {
   padding: 10px;
   text-align: center;
+}
+
+.arrival {
+  text-align: center;
+  margin-top: 20px;
+  ;
 }

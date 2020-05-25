@@ -2,59 +2,54 @@
 
 <h1>Flight Details</h1>
 <section>
-  <div><strong>Airline:</strong> <%=flight.airline %></div>
-  <div><strong>Airport:</strong> <%=flight.airport %></div>
-  <div><strong>Flight Number:</strong> <%=flight.flightNo %></div>
-  <div><strong>Departure Date:</strong> <%=flight.departs %></div>
+    <div><strong>Airline:</strong> <%=flight.airline %></div>
+    <div><strong>Airport:</strong> <%=flight.airport %></div>
+    <div><strong>Flight Number:</strong> <%=flight.flightNo %></div>
+    <div><strong>Departure Date:</strong> <%=flight.departs %></div>
 </section>
 <form action="/flights/<%= flight._id %>/edit" method="GET">
-  <button type="submit">Change Flight Details</button>
+    <button type="submit">Change Flight Details</button>
 </form>
 <br /><br />
 
 <br /><br />
 <h2>Destinations</h2>
 <form action="/flights/<%= flight._id%>/destinations" method="POST">
-  <label><strong>Destination Airport:</strong></label>
-  <select name="airport" class="btn btn-secondary dropdown-toggle">
-    <option value="AUS">AUS</option>
-    <option value="DFW">DFW</option>
-    <option value="DEN">DEN</option>
-    <option value="LAX">LAX</option>
-    <option value="SAN">SAN</option>
-  </select>
-  <br /><br />
-  <label
-    ><strong>Arrival Time:</strong>
-    <input
-      type="datetime-local"
-      name="arrival"
-      class="btn btn-secondary dropdown-toggle"
-    />
-  </label>
-  <br /><br />
-  <input type="submit" value="Add Destination" />
+    <label><strong>Destination Airport:</strong></label>
+    <select name="airport" class="btn btn-secondary dropdown-toggle">
+        <option value="AUS">AUS</option>
+        <option value="DFW">DFW</option>
+        <option value="DEN">DEN</option>
+        <option value="LAX">LAX</option>
+        <option value="SAN">SAN</option>
+    </select>
+    <br /><br />
+    <label><strong>Arrival Time:</strong>
+        <input type="datetime-local" name="arrival" class="btn btn-secondary dropdown-toggle" />
+    </label>
+    <br /><br />
+    <input type="submit" value="Add Destination" />
 </form>
 
 <div>
-  <h2>Arrival Info</h2>
-  <% if(flight.destinations.length) { %>
-  <table>
-    <thead>
-      <th>Airport</th>
-      <th>Arrival Date</th>
-    </thead>
-    <tbody>
-      <% flight.destinations.forEach(function(f) { %>
-      <tr>
-        <td><%=f.airport %></td>
-        <td><%=f.arrival %></td>
-      </tr>
-      <% }); %>
-    </tbody>
-  </table>
-  <% } else { %>
-  <h5>No Destination Yet</h5>
-  <% } %>
+    <h2 class="arrival">Arrival Information</h2>
+    <% if(flight.destinations.length) { %>
+    <table>
+        <thead>
+            <th>Airport</th>
+            <th>Arrival Date</th>
+        </thead>
+        <tbody>
+            <% flight.destinations.forEach(function(f) { %>
+            <tr>
+                <td><%=f.airport %></td>
+                <td><%=f.arrival %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <% } else { %>
+    <h5>No Destination Yet</h5>
+    <% } %>
 </div>
 <%- include('../partials/footer') %>
