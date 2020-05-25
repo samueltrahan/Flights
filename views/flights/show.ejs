@@ -7,41 +7,50 @@
   <div><strong>Flight Number:</strong> <%=flight.flightNo %></div>
   <div><strong>Departure Date:</strong> <%=flight.departs %></div>
 </section>
-
 <form action="/flights/<%= flight._id %>/edit" method="GET">
   <button type="submit">Change Flight Details</button>
 </form>
 <br /><br />
-<form
-  action="/flights/<%= flight._id %>/destinations"
-  id="add-destination"
-  method="POST"
->
-  <label>
-    <strong>Destination:</strong>
-    <select name="destinations">
-      <option value="AUS">AUS</option>
-      <option value="DFW">DFW</option>
-      <option value="DEN" selected>DEN</option>
-      <option value="LAX">LAX</option>
-      <option value="SAN">SAN</option>
-    </select>
-    <br />
-    <br />
 
-    <label
-      ><strong>Arrival Date:</strong>
-      <input type="datetime-local" name="arrival" /> </label>
-    <br>
-      <input type="submit" value="Add Destination" >
+<br /><br />
+<h2>Destinations</h2>
+<form action="/flights/<%= flight._id%>/destinations" method="POST">
+  <label>Destination Airport</label>
+  <select name="airport" class="btn btn-secondary dropdown-toggle">
+    <option value="AUS">AUS</option>
+    <option value="DFW">DFW</option>
+    <option value="DEN">DEN</option>
+    <option value="LAX">LAX</option>
+    <option value="SAN">SAN</option>
+  </select>
+  <br /><br />
+  <label
+    >Arrival Time:
+    <input type="datetime-local" name="arrival" />
+  </label>
+  <br /><br />
+  <input type="submit" value="Add Destination" />
 </form>
 
 <div>
   <h2>Arrival Info</h2>
   <% if(flight.destinations.length) { %>
-  <% flight.destinations.forEach(function(f) { %>
-  <br />
-
-  <%=f.destAirport %> <%=f.arrival %> <% })}; %>
+  <table>
+    <thead>
+      <th>Airport</th>
+      <th>Arrival Date</th>
+    </thead>
+    <tbody>
+      <% flight.destinations.forEach(function(f) { %>
+      <tr>
+        <td><%=f.destAirport %></td>
+        <td><%=f.arrival %></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+  <% } else { %>
+  <h5>No Destination Yet</h5>
+  <% } %>
 </div>
 <%- include('../partials/footer') %>

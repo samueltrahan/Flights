@@ -20,12 +20,12 @@
       <td><%= f.departs %></td>
       <td>
         <form action="/flights/<%= f._id %>" method="GET">
-          <button type="submit">Details</button>
+          <button type="submit" class="btn btn-secondary">Details</button>
         </form>
       </td>
       <td>
         <form action="/flights/<%= f._id %>?_method=DELETE" method="POST">
-          <button type="submit">X</button>
+          <button type="submit" class="btn btn-danger">X</button>
         </form>
       </td>
     </tr>
