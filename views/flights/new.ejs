@@ -1,32 +1,43 @@
 <%- include('../partials/base') %>
 
-
 <h2>Enter a New Flight</h2>
 <form action="/flights" method="POST">
-    <label>Airline:
-        <select name="airline">
-            <option value="American">American</option>
-            <option value="Southwest">Southwest</option>
-            <option value="United">United</option>
-        </select>
-    </label><br>
-    <label> Airports:
-        <select name="airport" id="">
-            <option value="AUS">AUS</option>
-            <option value="DFW">DFW</option>
-            <option value="DEN" selected>DEN</option>
-            <option value="LAX">LAX</option>
-            <option value="SAN">SAN</option>
-        </select>
-    </label> <br>
-    <label>Flight Number:
-        <input type="text" name="flightNo">
-    </label><br>
-    <label>Departure Date:
-        <input type="datetime-local" name="departs">
-    </label><br>
-    <input type="submit" value="Add Flight">
+  <label
+    >Airline:
+    <select name="airline" class="btn btn-secondary dropdown-toggle">
+      <option value="American">American</option>
+      <option value="Southwest">Southwest</option>
+      <option value="United">United</option>
+    </select> </label
+  ><br />
+  <label>
+    Airports:
+    <select name="airport" class="btn btn-secondary dropdown-toggle">
+      <option value="AUS">AUS</option>
+      <option value="DFW">DFW</option>
+      <option value="DEN" selected>DEN</option>
+      <option value="LAX">LAX</option>
+      <option value="SAN">SAN</option>
+    </select>
+  </label>
+  <br />
+  <label
+    >Flight Number:
+    <input
+      type="text"
+      name="flightNo"
+      class="btn btn-secondary dropdown-toggle"
+    /> </label
+  ><br />
+  <label
+    >Departure Date:
+    <input
+      type="datetime-local"
+      name="departs"
+      class="btn btn-secondary dropdown-toggle"
+    /> </label
+  ><br />
+  <input type="submit" value="Add Flight" />
 </form>
-
 
 <%- include('../partials/footer') %>

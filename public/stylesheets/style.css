@@ -8,11 +8,14 @@ a {
   color: black;
 }
 
-nav {
+body>nav {
   background-color: rgb(149, 151, 154);
   width: 100%;
-  height: 
-  overflow: auto;
+  grid-area: nav;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0px 20px 0px 20px;
 }
 
 nav>a {
@@ -30,4 +33,11 @@ nav>a:hover {
 
 nav>a.active {
   color: white;
+}
+
+nav>img {
+  float: right;
+  object-fit: contain;
+  margin-right: auto;
+  width: 80px;
 }

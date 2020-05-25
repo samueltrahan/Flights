@@ -3,7 +3,7 @@
 <form id='new-form' action="/flights/update/<%= flight._id %>" method="POST">
 
 	<label>Airline:
-	  <select name="airline" value="<%= flight.airline %>">
+	  <select name="airline" value="<%= flight.airline %>" class="btn btn-secondary dropdown-toggle">
 		<option value="<%= flight.airline %>"><%= flight.airline%></option>
 	    <option value="United">United</option>
         <option value="Southwest">Southwest</option>
@@ -13,7 +13,7 @@
 	<br>
 
 	<label>Flight Number:
-	  <input type="text" value="<%= flight.flightNo%>" name="flightNo">
+	  <input type="text" value="<%= flight.flightNo%>" name="flightNo" class="btn btn-secondary dropdown-toggle">
 	</label>
 	<br>
 	<br>
@@ -21,12 +21,12 @@
 
 
 	<label>Departure date:</label>
-	  <input type="datetime-local" value="<%= flight.departs %>" name="departs">
+	  <input type="datetime-local" value="<%= flight.departs %>" name="departs" class="btn btn-secondary dropdown-toggle">
 	
 	<br>
 	<br>
 	<label> Departure airport:
-<select name="airport">
+<select name="airport" class="btn btn-secondary dropdown-toggle">
 	</label>
 	<option value="<%= flight.airport %>"><%= flight.airport %></option>
     <option value="AUs">AUS</option>
