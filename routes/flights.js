@@ -8,7 +8,7 @@ router.get('/', flightCrtl.index);
 router.post('/', flightCrtl.create);
 router.get('/:id', flightCrtl.show);
 router.delete('/:id', flightCrtl.delete);
-router.get('/:id/edit', flightCrtl.details);
+router.get('/:id/edit', flightCrtl.edit);
 router.post('/update/:id', flightCrtl.update);
 
 

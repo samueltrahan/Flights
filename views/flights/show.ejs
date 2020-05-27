@@ -8,11 +8,11 @@
     <div><strong>Departure Date:</strong> <%=flight.departs %></div>
 </section>
 <form action="/flights/<%= flight._id %>/edit" method="GET">
-    <button type="submit">Change Flight Details</button>
+    <button id="change" class="btn btn-secondary" type="submit">Change Flight Details</button>
 </form>
-<br /><br />
+<br />
 
-<br /><br />
+<br />
 <h2>Destinations</h2>
 <form action="/flights/<%= flight._id%>/destinations" method="POST">
     <label><strong>Destination Airport:</strong></label>
@@ -28,8 +28,28 @@
         <input type="datetime-local" name="arrival" class="btn btn-secondary dropdown-toggle" />
     </label>
     <br /><br />
-    <input type="submit" value="Add Destination" />
+    <input id="destination" class="btn btn-secondary" type="submit" value="Add Destination" />
 </form>
+
+<br>
+<h2>Ticket Info</h2>
+
+<% if(tickets.length) { %>
+<% tickets.forEach(function(t) { %>
+<br>
+<div>Seat:
+    <%= t.seat %></div>
+<div>Price: $
+    <%=t.price %>
+</div>
+<form action="/tickets/<%= flight._id%>/<%= t._id%>?_method=DELETE" method='POST'>
+    <button type="submit">X</button>
+</form>
+<%}) %>
+<%} %>
+
+<a href="/flights/<%= flight._id %>/tickets/new/">Add Ticket</a>
+<br><br>
 
 <div>
     <h2 class="arrival">Arrival Information</h2>

@@ -8,7 +8,7 @@ module.exports = {
     delete: deleteFlight,
     show,
     update,
-    details,
+    edit,
 }
 
 function newFlight(req, res) {
@@ -69,7 +69,7 @@ function update(req, res) {
     });
 }
 
-function details(req, res) {
+function edit(req, res) {
     Flight.findById(req.params.id, function (err, flight) {
         res.render('flights/update', {
             title: 'Update Flight',
