@@ -11,26 +11,6 @@
     <button id="change" class="btn btn-secondary" type="submit">Change Flight Details</button>
 </form>
 <br />
-
-<br />
-<h2>Destinations</h2>
-<form action="/flights/<%= flight._id%>/destinations" method="POST">
-    <label><strong>Destination Airport:</strong></label>
-    <select name="airport" class="btn btn-secondary dropdown-toggle">
-        <option value="AUS">AUS</option>
-        <option value="DFW">DFW</option>
-        <option value="DEN">DEN</option>
-        <option value="LAX">LAX</option>
-        <option value="SAN">SAN</option>
-    </select>
-    <br /><br />
-    <label><strong>Arrival Time:</strong>
-        <input type="datetime-local" name="arrival" class="btn btn-secondary dropdown-toggle" />
-    </label>
-    <br /><br />
-    <input id="destination" class="btn btn-secondary" type="submit" value="Add Destination" />
-</form>
-
 <br>
 <h2>Ticket Info</h2>
 
@@ -42,16 +22,37 @@
 <div>Price: $
     <%=t.price %>
 </div>
-<form action="/tickets/<%= flight._id%>/<%= t._id%>?_method=DELETE" method='POST'>
-    <button type="submit">X</button>
-</form>
+<td>
+    <form action="/tickets/<%= flight._id%>/<%= t._id%>?_method=DELETE" method='POST'>
+        <button type="submit" class="btn btn-danger">X</button>
+    </form>
+</td>
 <%}) %>
 <%} %>
-
 <a href="/flights/<%= flight._id %>/tickets/new/">Add Ticket</a>
 <br><br>
 
 <div>
+
+    <br />
+    <h2>Destinations</h2>
+    <form action="/flights/<%= flight._id%>/destinations" method="POST">
+        <label><strong>Destination Airport:</strong></label>
+        <select name="airport" class="btn btn-secondary dropdown-toggle">
+            <option value="AUS">AUS</option>
+            <option value="DFW">DFW</option>
+            <option value="DEN">DEN</option>
+            <option value="LAX">LAX</option>
+            <option value="SAN">SAN</option>
+        </select>
+        <br /><br />
+        <label><strong>Arrival Time:</strong>
+            <input type="datetime-local" name="arrival" class="btn btn-secondary dropdown-toggle" />
+        </label>
+        <br /><br />
+        <input id="destination" class="btn btn-secondary" type="submit" value="Add Destination" />
+    </form>
+
     <h2 class="arrival">Arrival Information</h2>
     <% if(flight.destinations.length) { %>
     <table>
